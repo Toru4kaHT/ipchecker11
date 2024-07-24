@@ -60,9 +60,7 @@ def main():
         get_info_by_ip(ip=info['ip'])
     else:
         conn = session.info.user_ip
-        conn = http.client.HTTPConnection("ifconfig.me")
-        conn.request("GET", "/ip")
-        get_info_by_ip(ip=str(conn.getresponse().read())[2:-1])
+        get_info_by_ip(ip=str(conn))
 
 if __name__ == '__main__':
     start_server(main, debug=True, port=8080, remote_access=True)
